@@ -1,0 +1,28 @@
+<table>
+	<thead>
+		<th>Team Name</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<tr *ngFor='let player of players'>
+			<td>{{player.name}}</td>
+			<td>
+				<button 
+				[ngClass]="{'green': player.status[game-1] == 1 }"
+				(click)="update(player._id, 1)"
+				>Playing</button>
+
+				<button 
+				[ngClass]="{'red': player.status[game-1] == -1 }"
+				(click)="update(player._id, -1)"
+				>Not Playing</button>
+
+				<button 
+				[ngClass]="{'yellow': player.status[game-1] == 0 }"
+				(click)="update(player._id, 0)"
+				>Undecided</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+{{players|json}}
